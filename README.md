@@ -47,7 +47,7 @@ this directory. The script `0-init-vault.sh` will automatically pick this up and
 1. Once scripts have run and pods deployed into vault-demo project are ready, access the following address
 in your web browser `https://$(minikube ip):32443`.
 Observe that the certificates have a short TTL and are issued by the untrusted CA colin.testing.
-1. When you are ready to kill the demo, simply run `minikube stop` or `minikube delete` to stop or delete the CRC deployment. Then run `99-kill-vault.sh` to kill the Vault dev server.
+1. When you are ready to kill the demo, run `99-kill-vault.sh` to kill the Vault dev server. Then simply run `minikube stop` or `minikube delete` to stop or delete the minikube deployment. 
 
 ## Warning
 This demo is provided as-is with no support or guarantee. It makes no claim as to "production-readiness" in areas including but not limited to:
