@@ -1,0 +1,1 @@
+# vault-minikube-pki-int-vault-ca
