@@ -43,7 +43,7 @@ $ minikube ip
 
 1. If you are running Vault Enterprise, place a valid license key in a file called `license-vault.txt` in
 this directory. The script `0-init-vault.sh` will automatically pick this up and apply it.
-1. Add in your local IP address into the script `1-setup-minikube-environment.sh`.
+1. Add in your local IP address into a file called `my_ip.txt`
 1. Run each of the scripts in order starting from 0-... through to 7-...
 1. Once scripts have run and pods deployed into vault-demo project are ready, access the following address
 in your web browser `https://$(minikube ip):32443`.

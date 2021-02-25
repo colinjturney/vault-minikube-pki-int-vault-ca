@@ -1,17 +1,16 @@
 #!/bin/sh
 
-## Set your machine's local IP here
-export LOCAL_IP=""
-
-if [ "${LOCAL_IP}" == "" ]
+if [ ! -f "my_ip.txt" ]
 then
-  echo "Please set LOCAL_IP in 1-setup-minikube-environment.sh"
-  exit 
+  echo "Please set your local ip in a file called my_ip.txt"
+  exit 1
 fi
+
+export LOCAL_IP=$(cat my_ip.txt)
 
 # Get Vault Server IP
 export EXTERNAL_VAULT_ADDR="http://${LOCAL_IP}:8200"
-echo "EXTERNAL_VAULT_ADDR:${EXTERNAL_VAULT_ADDR}"
+echo "EXTERNAL_VAULT_ADDR: ${EXTERNAL_VAULT_ADDR}"
 
 # Set up service accounts
 kubectl create namespace vault-demo

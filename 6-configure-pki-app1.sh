@@ -1,7 +1,13 @@
 #!/bin/sh
 
 export VAULT_ADDR=http://127.0.0.1:8200
-export EXTERNAL_VAULT_ADDR=http://$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | head -n 1):8200
+if [ ! -f "my_ip.txt" ]
+then
+  echo "Please set your local ip in a file called my_ip.txt"
+  exit 1
+fi
+
+export EXTERNAL_VAULT_ADDR="http://$(cat my_ip.txt):8200"
 
 vault login root
 
