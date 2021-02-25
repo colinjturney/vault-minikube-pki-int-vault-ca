@@ -1,7 +1,16 @@
 #!/bin/sh
 
+## Set your machine's local IP here
+export LOCAL_IP=""
+
+if [ "${LOCAL_IP}" == "" ]
+then
+  echo "Please set LOCAL_IP in 1-setup-minikube-environment.sh"
+  exit 
+fi
+
 # Get Vault Server IP
-export EXTERNAL_VAULT_ADDR="http://192.168.1.168:8200"
+export EXTERNAL_VAULT_ADDR="http://${LOCAL_IP}:8200"
 echo "EXTERNAL_VAULT_ADDR:${EXTERNAL_VAULT_ADDR}"
 
 # Set up service accounts
